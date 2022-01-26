@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace GildedRoseKata
 {
@@ -10,53 +11,37 @@ namespace GildedRoseKata
             this.Items = Items;
         }
 
+        private void CalculateNewQuality(Item item)
+        {
+            if (item.Name == "Canned Beans") return;
+            
+            item.SellIn -= 1;
+
+            int qualityChange = 1;
+
+            if (item.Name == "Aged Brie")
+            {
+                qualityChange = -1;
+            }
+
+            if (item.Name.StartsWith("Baked"))
+            {
+                qualityChange = 2;
+            }
+
+            if (item.SellIn < 0)
+            {
+                qualityChange *= 2;
+            }
+
+            item.Quality = Math.Clamp(item.Quality - qualityChange, 0, 50);
+        }
+
         public void UpdateQuality()
         {
-            for (var i = 0; i < Items.Count; i++)
+            foreach (var item in Items)
             {
-                if (Items[i].Name != "Canned Beans")
-                {
-                    Items[i].SellIn = Items[i].SellIn - 1;
-                }
-
-                if (Items[i].Name == "Aged Brie")
-                {
-                    if (Items[i].Quality < 50)
-                    {
-                        Items[i].Quality = Items[i].Quality + 1;
-                    }
-                }
-                else
-                {
-                    if (Items[i].Quality > 0)
-                    {
-                        if (Items[i].Name != "Canned Beans")
-                        {
-                            Items[i].Quality = Items[i].Quality - 1;
-                        }
-                    }
-                }
-
-                if (Items[i].SellIn < 0)
-                {
-                    if (Items[i].Name == "Aged Brie")
-                    {
-                        if (Items[i].Quality < 50)
-                        {
-                            Items[i].Quality = Items[i].Quality + 1;
-                        }
-                    }
-                    else
-                    {
-                        if (Items[i].Quality > 0)
-                        {
-                            if (Items[i].Name != "Canned Beans")
-                            {
-                                Items[i].Quality = Items[i].Quality - 1;
-                            }
-                        }
-                    }
-                }
+                CalculateNewQuality(item);
             }
         }
     }
