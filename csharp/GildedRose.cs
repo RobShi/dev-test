@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace csharp
 {
@@ -10,15 +11,65 @@ namespace csharp
             this.Items = Items;
         }
 
+        private void NoOp(Item item)
+        {
+        }
+        
+        private void DecrementSellIn(Item item)
+        {
+            item.SellIn -= 1;
+        }
+        
+        private void DecrementQuality(Item item)
+        {
+            item.Quality -= 1;
+        }
+        
+        private void DecrementQualityDouble(Item item)
+        {
+            item.Quality -= 2;
+        }
+
+        private void IncrementQuality(Item item)
+        {
+            if (item.Quality < 50)
+            {
+                item.Quality = item.Quality + 1;
+            }
+        }
+
+        private Action<Item> _getSellIn(Item item)
+        {
+            if (item.Name == "Canned Beans")
+            {
+                return NoOp;
+            }
+
+            return DecrementSellIn;
+        }
+
+        private Action<Item> _getQuality(Item item)
+        {
+            if (item.Name == "Aged Brie")
+            {
+                return IncrementQuality;
+            }
+
+            if (item.Name == "Canned Beans")
+            {
+                return NoOp;
+            }
+
+            return DecrementQuality;
+        }
+        
         public void UpdateQuality()
         {
             for (var i = 0; i < Items.Count; i++)
             {
-                if (Items[i].Name != "Canned Beans")
-                {
-                    Items[i].SellIn = Items[i].SellIn - 1;
-                }
-
+                _getSellIn(Items[i]).Invoke(Items[i]);
+                //_getQuality(Items[i]).Invoke(Items[i]);
+                
                 if (Items[i].Name == "Aged Brie")
                 {
                     if (Items[i].Quality < 50)
@@ -32,7 +83,14 @@ namespace csharp
                     {
                         if (Items[i].Name != "Canned Beans")
                         {
-                            Items[i].Quality = Items[i].Quality - 1;
+                            if (Items[i].Name.ToLower().StartsWith("baked") && Items[i].Quality > 1)
+                            {
+                                Items[i].Quality = Items[i].Quality - 2;
+                            }
+                            else
+                            {
+                                Items[i].Quality = Items[i].Quality - 1;
+                            }
                         }
                     }
                 }
@@ -52,7 +110,14 @@ namespace csharp
                         {
                             if (Items[i].Name != "Canned Beans")
                             {
-                                Items[i].Quality = Items[i].Quality - 1;
+                                if (Items[i].Name.ToLower().StartsWith("baked") && Items[i].Quality > 1)
+                                {
+                                    Items[i].Quality = Items[i].Quality - 2;
+                                }
+                                else
+                                {
+                                    Items[i].Quality = Items[i].Quality - 1;
+                                }
                             }
                         }
                     }
