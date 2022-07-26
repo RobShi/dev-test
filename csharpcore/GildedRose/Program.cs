@@ -11,14 +11,14 @@ namespace GildedRoseKata
         {
             IList<Item> Items = new List<Item>{
                 new Item {Name = "Bananas", SellIn = 10, Quality = 20},
-                new Item {Name = "Aged Brie", SellIn = 2, Quality = 0},
+                new Item {Name = "Aged Brie", SellIn = 2, Quality = 1},
                 new Item {Name = "Eggs", SellIn = 5, Quality = 7},
                 new Item {Name = "Eggs", SellIn = 12, Quality = 5},
                 new Item {Name = "Canned Beans", SellIn = 0, Quality = 80},
                 new Item {Name = "Canned Beans", SellIn = -1, Quality = 80},
                 
                 // This Baked good does not work properly yet!
-				new Item {Name = "Baked Sourdough Bread", SellIn = 3, Quality = 6}
+				new Item {Name = "Baked Sourdough Bread", SellIn = 3, Quality = 5}
             };
 
             var app = new GildedRose(Items);
