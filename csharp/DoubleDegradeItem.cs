@@ -22,6 +22,11 @@ namespace csharp
                 {
                     Quality -= 2;
                 }
+
+                if (Quality < 0)
+                {
+                    Quality = 0;
+                }
             }
         }
     }

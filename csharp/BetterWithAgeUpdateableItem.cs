@@ -18,6 +18,10 @@ namespace csharp
                 this.Quality++;
             }
             this.Quality++;
+            if (Quality > 0)
+            {
+                Quality = 50;
+            }
         }
     }
 }

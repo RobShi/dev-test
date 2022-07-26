@@ -20,7 +20,6 @@ namespace csharp
 
                 FoodItemFactory.Create(Foods.CannedBeans, "Canned Beans", 0, 80),
                 FoodItemFactory.Create(Foods.CannedBeans, "Canned Beans", -1, 80),
-
                 FoodItemFactory.Create(Foods.DoubleDegradeItem, "Baked Sourdough Bread", 3, 6)
             };
 
