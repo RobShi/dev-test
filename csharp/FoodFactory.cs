@@ -28,7 +28,7 @@ namespace csharp
             }
             else
             {
-                item = new BetterWithAgeUpdateableItem();
+                item = new GenericUpdatableItem();
             }
 
             item.Name = itemName;

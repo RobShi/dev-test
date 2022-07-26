@@ -12,13 +12,16 @@ namespace csharp
         {
             this.SellIn--;
 
-            if (SellIn < 0)
+            if (Quality > 0)
             {
-                Quality -= 4;
-            }
-            else
-            {
-                Quality -= 2;
+                if (SellIn < 0)
+                {
+                    Quality -= 4;
+                }
+                else
+                {
+                    Quality -= 2;
+                }
             }
         }
     }
