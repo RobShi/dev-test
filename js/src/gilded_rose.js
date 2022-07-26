@@ -24,7 +24,11 @@ class Shop {
         }
       } else {
         if (this.items[i].quality > 0 && this.items[i].name != 'Canned Beans') {
-          this.items[i].quality = this.items[i].quality - 1;
+          if(this.items[i].name.slice(0, 5) === 'Baked') {
+            this.items[i].quality = this.items[i].quality - 2;
+          } else {
+            this.items[i].quality = this.items[i].quality - 1;
+          }
         }
       }
 
@@ -35,7 +39,11 @@ class Shop {
           }
         } else {
           if (this.items[i].quality > 0 && this.items[i].name != 'Canned Beans') {
-            this.items[i].quality = this.items[i].quality - 1;
+            if(this.items[i].name.slice(0, 5) === 'Baked') {
+              this.items[i].quality = this.items[i].quality - 2;
+            } else {
+              this.items[i].quality = this.items[i].quality - 1;
+            }
           }
         }
       }
