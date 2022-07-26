@@ -9,16 +9,18 @@ namespace csharp
 
         public static void Main(string[] args)
         {
-            IList<Item> Items = new List<Item>{
-                new Item {Name = "Bananas", SellIn = 10, Quality = 20},
-                new Item {Name = "Aged Brie", SellIn = 2, Quality = 0},
-                new Item {Name = "Eggs", SellIn = 5, Quality = 7},
-                new Item {Name = "Eggs", SellIn = 12, Quality = 5},
-                new Item {Name = "Canned Beans", SellIn = 0, Quality = 80},
-                new Item {Name = "Canned Beans", SellIn = -1, Quality = 80},
-                
-                // This Baked good does not work properly yet!
-                new Item {Name = "Baked Sourdough Bread", SellIn = 3, Quality = 6}
+            var Items = new List<UpdateableItem>
+            {
+
+                FoodItemFactory.Create(Foods.GenericItem, "Bananas", 10, 20),
+                FoodItemFactory.Create(Foods.AgedBrie, "Aged Brie", 2, 0),
+
+                FoodItemFactory.Create(Foods.GenericItem, "Eggs", 5, 7),
+                FoodItemFactory.Create(Foods.GenericItem, "Eggs", 12, 5),
+
+                FoodItemFactory.Create(Foods.CannedBeans, "Canned Beans", 0, 80),
+                FoodItemFactory.Create(Foods.CannedBeans, "Canned Beans", -1, 80),
+                FoodItemFactory.Create(Foods.DoubleDegradeItem, "Baked Sourdough Bread", 3, 6)
             };
 
             var app = new GildedRose(Items);
@@ -35,6 +37,8 @@ namespace csharp
                 Console.WriteLine("");
                 app.UpdateQuality();
             }
+
+            Console.ReadKey();
         }
     }
 }

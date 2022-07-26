@@ -45,8 +45,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BetterWithAgeUpdateableItem.cs" />
+    <Compile Include="CannedUpdatedableItem.cs" />
+    <Compile Include="DoubleDegradeItem.cs" />
+    <Compile Include="FoodFactory.cs" />
+    <Compile Include="Foods.cs" />
+    <Compile Include="GenericUpdatableItem.cs" />
     <Compile Include="GildedRose.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="IUpdateable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
