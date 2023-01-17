@@ -9,16 +9,17 @@ namespace ShiMartKata
 
         public static void Main(string[] args)
         {
-            IList<Item> Items = new List<Item>{
-                new Item {Name = "Bananas", SellIn = 10, Quality = 20},
-                new Item {Name = "Aged Brie", SellIn = 2, Quality = 0},
-                new Item {Name = "Eggs", SellIn = 5, Quality = 7},
-                new Item {Name = "Eggs", SellIn = 12, Quality = 5},
-                new Item {Name = "Canned Beans", SellIn = 0, Quality = 80},
-                new Item {Name = "Canned Beans", SellIn = -1, Quality = 80},
+            IList<Item> Items = new List<Item>
+            {
+                new ShiMartItem {Name = "Bananas", SellIn = 10, Quality = 20},
+                new ShiMartItem {Name = "Aged Brie", SellIn = 2, Quality = 0, ItemType = ShiMartItemType.Cheese},
+                new ShiMartItem {Name = "Eggs", SellIn = 5, Quality = 7},
+                new ShiMartItem {Name = "Eggs", SellIn = 12, Quality = 5},
+                new ShiMartItem {Name = "Canned Beans", SellIn = 0, Quality = 80, ItemType = ShiMartItemType.Canned},
+                new ShiMartItem {Name = "Canned Beans", SellIn = -1, Quality = 80, ItemType = ShiMartItemType.Canned},
                 
                 // This Baked good does not work properly yet!
-				new Item {Name = "Baked Sourdough Bread", SellIn = 3, Quality = 6}
+				new ShiMartItem {Name = "Baked Sourdough Bread", SellIn = 3, Quality = 13, ItemType = ShiMartItemType.Baked}
             };
 
             var app = new ShiMart(Items);
