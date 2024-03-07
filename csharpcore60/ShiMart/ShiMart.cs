@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections.Generic;
 
 namespace ShiMartKata
 {
@@ -10,6 +11,17 @@ namespace ShiMartKata
             this.Items = Items;
         }
 
+        // TODO:Increase code readbility
+        // 1. Reduce if conditions
+        // 2. Refacor code in more methods
+        // 3. Refactor SellIn logic in a new method : UpdateSellIn. Note: QualityCalulation is dependent on SellIn Value
+
+
+        // Make the program item independent 
+        // 1. Item.cs in a class ItemWithType.cs, inherits Item.cs
+        // 2. Use Builder pattern for BuildingItem
+        // 3. It requires creation of centeraliztion of multiple type of items and handle related busisness logic,
+        // I would prefer, use Abstarct Factory Pattern for different type of items        
         public void UpdateQuality()
         {
             for (var i = 0; i < Items.Count; i++)
@@ -30,9 +42,14 @@ namespace ShiMartKata
                 {
                     if (Items[i].Quality > 0)
                     {
-                        if (Items[i].Name != "Canned Beans")
+                        if (Items[i].Name != "Canned Beans" && !Items[i].Name.Contains("Baked"))
                         {
                             Items[i].Quality = Items[i].Quality - 1;
+                        }
+
+                        if (Items[i].Name.Contains("Baked"))
+                        {
+                            Items[i].Quality = Items[i].Quality - 2;
                         }
                     }
                 }
@@ -50,9 +67,13 @@ namespace ShiMartKata
                     {
                         if (Items[i].Quality > 0)
                         {
-                            if (Items[i].Name != "Canned Beans")
+                            if (Items[i].Name != "Canned Beans" && !Items[i].Name.Contains("Baked"))
                             {
                                 Items[i].Quality = Items[i].Quality - 1;
+                            }
+                            if (Items[i].Name.Contains("Baked"))
+                            {
+                                Items[i].Quality = Items[i].Quality - 2;
                             }
                         }
                     }
