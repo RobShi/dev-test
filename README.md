@@ -6,6 +6,11 @@ Unfortunately, our foods are constantly degrading in quality as they approach th
 have a system in place that updates our inventory for us. Your task is to add the new feature to our
 system so that we can begin selling a new category of items.
 
+**Important Note:** Unfortunately, our highly skilled lead developer recently left the company and 
+didn't leave much documentation for the code. However, the system has been working correctly for 
+quite some time now! We really want to be careful not to break any of the existing functionality 
+while implementing the new features.
+
 First an introduction to our system:
   - All items have a SellIn value which denotes the number of days we have to sell the item
   - All items have a Quality value which denotes how valuable the item is
@@ -33,5 +38,5 @@ non-perishable item and as such its Quality is 80 and it never alters.
 Some additional notes:
 
 * The project is currently working. You can run or debug it to see the existing output.
-* Both C# projects include a basic, working unit test. You can run these unit tests as well, and modify them if you see fit.
+* All projects include a functional working unit test. You can run this unit test and modify, extend, or add new unit tests as you see fit.
 * The only parts of the solution you should NOT edit is the Item class itself, and the list of Items that is declared at the entry point of the project, unless instructed to do so by an interviewer. Feel free to modify, add, or remove any other code.
