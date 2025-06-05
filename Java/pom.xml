@@ -5,7 +5,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.ShiMart</groupId>
+    <groupId>com.shimart</groupId>
     <artifactId>shi-mart-kata</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
