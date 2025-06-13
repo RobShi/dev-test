@@ -1,6 +1,6 @@
 # ShiMart
 
-This is the ShiMart kata in Python.
+This is the ShiMart kata in Python. If you have an IDE you're comfortable with, you can run all othese operations from within the IDE. If you prefer command line, guidance is provided below.
 
 ## Getting started
 

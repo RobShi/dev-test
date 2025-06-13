@@ -39,4 +39,5 @@ Some additional notes:
 
 * The project is currently working. You can run or debug it to see the existing output.
 * All projects include a functional working unit test. You can run this unit test and modify, extend, or add new unit tests as you see fit.
-* The only parts of the solution you should NOT edit is the Item class itself, and the list of Items that is declared at the entry point of the project, unless instructed to do so by an interviewer. Feel free to modify, add, or remove any other code.
+* The only parts of the solution you should NOT edit is the Item class itself, and the list of Items that is declared at the entry point of the project, unless instructed to do so by an interviewer. Feel free to modify, add, or remove any other code in the entire project.
+* Each test has a README.md with some information on running the project.
